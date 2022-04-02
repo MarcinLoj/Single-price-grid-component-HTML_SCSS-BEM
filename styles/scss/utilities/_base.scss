@@ -1,0 +1,154 @@
+@use "colors";
+@use "values";
+@use "fonts";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    width: 100%;
+    height: 100%;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $light-gray;
+    @include font-poppins;
+    color: $white;
+}
+.banner {
+
+    display: grid;
+    grid-template-areas: 
+        "intro intro"
+        "payment choice";
+}
+.subscription-introduction {
+    width: 500px;
+    padding: 32px;
+    grid-area: intro;
+    grid-column: 1 / 3;
+    background-color: $white;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    
+}
+.subscription-payment {
+    width: 218px;
+    padding: 32px;
+    grid-area: payment;
+    background-color: $cyan;
+    border-bottom-left-radius: 8px;
+}
+.subscription-choice {
+    width: 218px;
+    padding: 32px;
+    grid-area: choice;
+    background-color: $light-cyan;
+    border-bottom-right-radius: 8px;
+}
+.subscription-introduction__header {
+    font-size: 18px;
+    font-weight: 600;
+    color: $cyan;
+    margin-bottom: 20px;
+}
+.subscription-introduction__time-guarantee {
+    color: $bright-yellow;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.subscription-introduction__desc {
+    font-size: 12px;
+    padding-right: 32px;
+    opacity: 0.4;
+    color: $black
+}
+.subscription__header {
+    @include font-spartan;
+    margin-bottom: 16px;
+    font-size: 14px;
+    font-weight: 700;
+}
+.subscription-payment__value {
+    @include font-spartan;
+    font-weight: 700;
+    opacity: 1;
+    font-size: 20px;
+}
+.subscription-payment__price {
+    font-size: 12px;
+    display: flex;
+    margin-bottom: 8px;
+}
+.subscription-payment__desc {
+    opacity: 0.4;
+    margin-left: 12px;
+    padding-bottom: 4px;
+    align-self: center;
+}
+.subscription-payment__incentive {
+    opacity: 0.7;
+    margin-bottom: 16px;
+    font-size: 12px;
+}
+.subscription-payment__button {
+    @include font-karla;
+    padding: 8px 72px;
+    font-size: 12px;
+    margin-right: 20px;
+    font-weight: 600;
+    color: $white;
+    background-color: $bright-yellow;
+    border-radius: 4px;
+    border: 1px solid $bright-yellow;
+    transition: background-color 0.4s, border-color 0.4s;
+    &:hover {
+        background-color: $white;
+        border-color: $white;
+        color: $bright-yellow;
+    }
+}
+.subscription-choice__desc {
+    opacity: 0.7;
+    font-size: 12px;
+    line-height: 20px;
+}
+@media (max-width: 564px) {
+    .banner {
+        grid-template-areas: 
+        "intro"
+        "payment"
+        "choice";
+    }
+    .subscription-introduction {
+        padding: 24px 32px 32px 24px;
+    }
+    .subscription-payment {
+        border-radius: 0;
+        padding: 24px 32px 24px 24px;
+    }
+    .subscription-choice {
+        border-bottom-left-radius: 8px;
+        padding: 24px 32px 24px 24px;
+    }
+    .subscription-introduction__time-guarantee {
+        margin-bottom: 12px;
+    }
+    .subscription-introduction__desc {
+        padding-right: 0;
+    }
+    .subscription-introduction {
+        width: 218px;
+    }
+    .subscription-payment__incentive {
+        margin-bottom: 24px;
+    }
+    .subscription-payment__button {
+        padding: 8px 84px;
+        margin-right: 0;
+    }
+}
